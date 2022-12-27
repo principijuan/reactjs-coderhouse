@@ -1,8 +1,10 @@
 
-import './App.css'
-import ComponenteContenedor from './components/ComponenteContenedor/ComponenteContenedor'
+import NavBar from './components/NavBar/NavBar'
+import ItemListConteiner from './components/container/ItemListContainer/ItemListContainer'
+import Titulo from './components/Titulo/Titulo'
 
-
+import "bootstrap/dist/css/bootstrap.min.css"
+// import './App.css'
 
 
 
@@ -11,12 +13,9 @@ function App() {
 
   return (
     <>
-      <nav>
-        <p>Nombre de la tienda</p>
-        <p>Remeras</p>
-        <p>Gorras</p>
-      </nav>
-      <ComponenteContenedor saludo="Hola home" />
+      <Titulo />
+      <NavBar />
+      <ItemListConteiner />
     </>
   )
 }

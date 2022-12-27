@@ -1,5 +1,7 @@
 const Titulo = () => {
-    return <h1>Hola soy título de App</h1>
+    return (
+      <h1></h1>
+    )
   }
 
   export default Titulo
