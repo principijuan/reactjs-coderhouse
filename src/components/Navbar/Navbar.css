@@ -1,0 +1,9 @@
+.navBar {
+    width: 10px;
+}
+
+.navBarBrand {
+    color: brown;
+    text-decoration: none;
+    background-color: aqua;
+}

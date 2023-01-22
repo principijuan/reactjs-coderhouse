@@ -1,18 +1,24 @@
 import { Container, Nav, Navbar, Form, Button } from "react-bootstrap"
+import { Link, NavLink } from "react-router-dom"
 import { CartWidget } from "../CartWidget/CartWidget"
+
+// import "./NavBar.css"
+
 
 const NavBar = () => {
     return (
         <>
-            <Navbar bg="light" expand="lg">
+            <Navbar className="navBar" bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">Nauj Nitram</Navbar.Brand>
+                    <NavLink className="navBarBrand" to="/">Nauj Nitram</NavLink>
+                    {/* <NavLink className={ ( { isActive } ) => isActive ? "bg-success" : "bg-dark"} to="/">Nauj Nitram</NavLink> */}
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Hombre</Nav.Link>
-                            <Nav.Link href="#home">Mujer</Nav.Link>
-                            <Nav.Link href="#home">Niños</Nav.Link>
+                            {/* <NavLink className={ ( { isActive } ) => isActive ? "btn btn-primary" : "btn btn-outline-light"} to="/hombre">Hombre</NavLink> */}
+                            <Link to="/categoria/remeras">Remeras</Link>
+                            <Link to="/categoria/pantalones">Pantalones</Link>
+                            <Link to="/categoria/accesorios">Accesorios</Link>
                         </Nav>
                         <Form className="d-flex">
                             <Form.Control
@@ -23,9 +29,12 @@ const NavBar = () => {
                             />
                             <Button variant="outline-success">Buscar</Button>
                         </Form>
+                        <div>
+                            <Link to="/cart">🛒</Link>
+                        </div>
+                        <CartWidget />  
                     </Navbar.Collapse>
                 </Container>
-                <CartWidget />  
             </Navbar>
                       
         </>
