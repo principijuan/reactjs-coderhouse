@@ -1,0 +1,36 @@
+.containerr{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.detail__imagen {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.detailContainer{
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    gap: 2vh;
+}
+
+.detailBoton{
+    color: black;
+    padding: 1vh;
+    background-color: #ffffff;
+    border-radius: 7.5px;
+    transition: 0.3s;
+}
+
+.detailBoton:hover{
+    display: flex;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 1vh;
+    border-radius: 7.5px;
+    transition: 0.3s;
+}

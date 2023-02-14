@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
-import { gFetch } from "../../../utils/gFetch"
+import { gFetch } from "../../../utils/firebase"
 
 import "./ItemListContainer.css"
 
@@ -36,16 +36,18 @@ export const ItemListContainer = () => {
             :
 
             productos.map( producto =>  <div key={producto.id} className="card w-25 mt-5">
-                                            <div className="card-head"></div>
-                                                {producto.nombre}
-                                            <div className="card-body"></div>
+                                            <div className="card-head">
                                                 <img src={producto.imagen} className="w-100"/>
-                                                <h6>Categoría: {producto.categoria}</h6>
-                                                <h6>Precio: ${producto.precio}</h6>
-                                            <div className="card-foot"></div>
+                                            </div>
+                                            <div className="card-body">
+                                                <h5>{producto.nombre}</h5>
+                                            </div>                                                
+                                            <div className="card-foot">                                                
                                                 <Link to={`/detail/${producto.id}`}>
                                                     <button className="btn btn-outline-dark boton-detalle">Ir a detalle</button>{}
                                                 </Link>
+                                            </div>
+
                                         </div>) 
             }
         </div>

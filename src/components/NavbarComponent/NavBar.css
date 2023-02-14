@@ -1,0 +1,87 @@
+.navBarContainer {
+    width: 1000px;
+}
+
+.navBarBrand {
+    color: black;
+    text-decoration: none;
+}
+
+.NavLink{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+.NavContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navBarContainer{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.navBotonActive{
+    display: flex;
+    margin: 0vh 2vh;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 1vh;
+    border-radius: 7.5px;
+}
+
+.navBotonActive:hover{
+    display: flex;
+    margin: 0vh 2vh;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 1vh;
+    border-radius: 7.5px;
+}
+
+.navBotonInactive{
+    display: flex;
+    margin: 0vh 2vh;
+    text-decoration: none;
+    color: black;
+    padding: 1vh;
+    transition: 0.3s;
+}
+
+.navBotonInactive:hover{
+    display: flex;
+    margin: 0vh 2vh;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(230, 230, 230);
+    padding: 1vh;
+    border-radius: 7.5px;
+    transition: 0.3s;
+}
+
+.carrito{
+    text-decoration: none;
+    color: #000000;
+    display: flex;
+}
+
+.carrito:hover{
+    color: #000000;
+}
+
+.cartIcon{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0vh 2vh;
+    border-radius: 0.45vh;
+    gap: 0.30vh;
+
+}
