@@ -1,25 +1,20 @@
-import { useState } from "react"
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { gFetchOk } from "../../../utils/firebase"
-import ItemDetail from "../../ItemDetail/ItemDetail"
+import { useState } from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { gFetchOk } from "../../../utils/firebase";
+import ItemDetail from "../../ItemDetail/ItemDetail";
 
-import "./ItemDetailContainer.css"
+import "./ItemDetailContainer.css";
 
 const ItemDetailContainer = () => {
-  const [ producto, setProducto] = useState ({})
-  const {detailId} = useParams ()
-  
-  useEffect (() =>{
-    gFetchOk(detailId)
-    // .then(resp=>resp.json())
-    .then(resp=>setProducto(resp))
-    // .finally(() => )
-  }, [])
+  const [producto, setProducto] = useState({});
+  const { detailId } = useParams();
 
-  return (
-    <ItemDetail producto={producto}/>
-  )
-}
+  useEffect(() => {
+    gFetchOk(detailId).then((resp) => setProducto(resp));
+  }, []);
 
-export default ItemDetailContainer
+  return <ItemDetail producto={producto} />;
+};
+
+export default ItemDetailContainer;

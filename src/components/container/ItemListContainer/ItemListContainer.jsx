@@ -1,59 +1,49 @@
-import { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
-import { gFetch } from "../../../utils/firebase"
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { gFetch } from "../../../utils/firebase";
 
-import "./ItemListContainer.css"
+import "./ItemListContainer.css";
+import { Spinner } from "react-bootstrap";
+import { ItemList } from "./ItemList";
 
 export const ItemListContainer = () => {
+  const [productos, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { categoriaId } = useParams();
 
-    const [productos, setProductos] = useState([])
-    const [loading, setLoading] = useState(true)
-    const {categoriaId} = useParams()
+  useEffect(() => {
+    gFetch()
+      .then((respuestaPromesa) => {
+        setProducts(
+          categoriaId
+            ? respuestaPromesa.filter((items) => items.categoria == categoriaId)
+            : respuestaPromesa
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Algo salió mal!",
+          showConfirmButton: false,
+          timer: 3500,
+        });
+      })
+      .finally(() => setLoading(false));
+  }, [categoriaId]);
 
-    useEffect( () => {
-        if (categoriaId) {
-            gFetch()
-                .then(respuestaPromesa => {
-                setProductos(respuestaPromesa.filter(items => items.categoria == categoriaId))
-                })
-                .catch(err => console.log(err))
-                .finally(() => setLoading(false))
-        } else {
-            gFetch()
-                .then(respuestaPromesa => {
-                setProductos(respuestaPromesa)
-                })
-                .catch(err => console.log(err))
-                .finally(() => setLoading(false))
-        }
-    }, [categoriaId])
-
-    return (
-        <div className="contenedorCards">
-            { loading
-            ?
-                <h1>Cargando...</h1>
-            :
-
-            productos.map( producto =>  <div key={producto.id} className="card w-25 mt-5">
-                                            <div className="card-head">
-                                                <img src={producto.imagen} className="w-100"/>
-                                            </div>
-                                            <div className="card-body">
-                                                <h5>{producto.nombre}</h5>
-                                            </div>                                                
-                                            <div className="card-foot">                                                
-                                                <Link to={`/detail/${producto.id}`}>
-                                                    <button className="btn btn-outline-dark boton-detalle">Ir a detalle</button>{}
-                                                </Link>
-                                            </div>
-
-                                        </div>) 
-            }
+  return (
+    <div className="contenedorCards">
+      {loading ? (
+        <div className={"itemsLoading"}>
+          <Spinner animation="border" variant="primary" />
         </div>
-    )
-}
+      ) : (
+        <ItemList productos={productos} />
+      )}
+    </div>
+  );
+};
 
-
-
-export default ItemListContainer
+export default ItemListContainer;

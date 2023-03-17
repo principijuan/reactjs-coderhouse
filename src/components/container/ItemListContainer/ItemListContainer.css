@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     gap: 80px;
     justify-content: center;
-    
+
 }
 
 .card:hover {
@@ -12,11 +12,18 @@
     transition: 0.5s;
 }
 
-.card-foot{
+.card-foot {
     margin: 1vh;
 }
 
 .card {
     text-align: center;
     transition: 0.5s;
+}
+
+.itemsLoading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
